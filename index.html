@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Sign-Up Today!</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- Firebase References -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+
+        <br>
+
+        <!-- Jumbotron -->
+        <div class="jumbotron">
+            <h1 class="text-center">Anytime is train time!</h1>
+        </div>
+
+        <div class="row">
+            ​
+            <div class="col-md-12">
+                ​
+                <!-- Current Employees-->
+                <div class="card mb-4">
+                    <div class="card-header">Current Train Schedule</div>
+                    <div class="card-body">
+                        <table class="table table-sm table-hover" id='train-table'>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Train Name</th>
+                                    <th scope="col">Destination</th>
+                                    <th scope="col">frequency(min)</th>
+                                    <th scope="col">Next Arrival</th>
+                                    <th scope="col">Minutes Away</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <!-- Sign-Up Card-->
+            <div class="col-md-12">
+                <div class="card card-default">
+                    <div class="card-header">
+                        Add Train
+                    </div>
+                    <div class="card-body">
+
+                        <!-- Sign-up Form (note the various input "types")-->
+
+                        <form role="form">
+                            <div class="form-group row">
+                                <label for="name-input"> Train Name </label>
+                                <input class="form-control" id="name-input" type="text">
+                            </div>
+                            <div class="form-group row">
+                                <label for="destination-input">Destination</label>
+                                <input class="form-control" id="destination-input" type="text">
+                            </div>
+                            <div class="form-group row">
+                                <label for="traintime-input">First Train Time(HH:mm-military time)</label>
+                                <input class="form-control" id="traintime-input" type="time">
+                            </div>
+                            <div class="form-group row">
+                                <label for="frequency-input">Frequency(min)</label>
+                                <input class="form-control" id="frequency-input" type="number">
+                            </div>
+                            <button class="btn btn-default" id="add-train" type="submit">Submit</button>
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Most Recent Member card -->
+
+
+        </div>
+
+    </div>
+
+    <!-- jQuery -->
+    <!--<script src="https://code.jquery.com/jquery.js"></script>-->
+
+    <!-- Script -->
+    <!--<script>
+        // START CODING BELOW!!
+
+        // Initialize Firebase
+        var firebaseConfig = {
+            apiKey: "AIzaSyDBLmXhkbnFXUU61B0SCBRX1d7sFL_k87A",
+            authDomain: "class-demo-b7f73.firebaseapp.com",
+            databaseURL: "https://class-demo-b7f73.firebaseio.com",
+            projectId: "class-demo-b7f73",
+            storageBucket: "",
+            messagingSenderId: "652912100467",
+            appId: "1:652912100467:web:17d9589c091e13bb66d606"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+
+        // Create a variable to reference the database.
+        var database = firebase.database();
+
+        // Initial Values
+        var name = "";
+        var email = "";
+        var age = 0;
+        var comment = "";
+
+        // Capture Button Click
+        $("#add-user").on("click", function(event) {
+            event.preventDefault();
+
+            // Grabbed values from text-boxes
+            name = $("#name-input").val().trim();
+            email = $("#email-input").val().trim();
+            age = $("#age-input").val().trim();
+            comment = $("#comment-input").val().trim();
+
+            // Code for "Setting values in the database"
+            database.ref().set({
+                name: name,
+                email: email,
+                age: age,
+                comment: comment
+            });
+
+        });
+
+        // Firebase watcher + initial loader HINT: .on("value")
+        database.ref().on("value", function(snapshot) {
+
+            // Log everything that's coming out of snapshot
+            console.log(snapshot.val());
+            console.log(snapshot.val().name);
+            console.log(snapshot.val().email);
+            console.log(snapshot.val().age);
+            console.log(snapshot.val().comment);
+
+            // Change the HTML to reflect
+            $("#name-display").text(snapshot.val().name);
+            $("#email-display").text(snapshot.val().email);
+            $("#age-display").text(snapshot.val().age);
+            $("#comment-display").text(snapshot.val().comment);
+
+            // Handle the errors
+        }, function(errorObject) {
+            console.log("Errors handled: " + errorObject.code);
+        });
+    </script>
+
+</body>
+
+</html>
