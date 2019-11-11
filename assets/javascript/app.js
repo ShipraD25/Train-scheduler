@@ -32,8 +32,8 @@ $(document).ready(function() {
         destination = $("#destination-input").val().trim();
         trainTime = $("#traintime-input").val().trim();
         frequency = $("#frequency-input").val().trim();
-        console.log("->", trainName, destination, trainTime, frequency)
-            // Code for "pushing the values in the database"
+
+        // Code for "pushing the values in the database"
         database.ref().push({
             trainName: trainName,
             destination: destination,
@@ -74,7 +74,7 @@ $(document).ready(function() {
     function updateTime() {
         console.log("update time");
         $(".trains").each(function() {
-            console.log("inside");
+
             var frequency = $(this).children(".info").attr("freq");
             var trainTime = $(this).children(".info").attr("time");
             var trainTimeM = moment(trainTime, "HH:mm");
@@ -84,7 +84,7 @@ $(document).ready(function() {
             $(this).children(".minutes").text(minutesAway);
         })
     }
-
+    // updating time every minute
     var timer = setInterval(updateTime, 60000);
 
 });
