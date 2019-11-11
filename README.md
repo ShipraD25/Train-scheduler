@@ -42,4 +42,4 @@ function updateTime() {
 
 ## App Demo
 
-![Train-schedule Demo!]()
+![Train-schedule Demo!](https://media.giphy.com/media/LoCaJcftgK5pdYN1CY/giphy.gif)
