@@ -57,19 +57,19 @@ $(document).ready(function() {
         // current time
         // var current = moment().format("HH:mm")
         //  console.log(current)
-        var trainTimeM = moment(snapshot.val().trainTime, "HH:mm")
+        var trainTimeM = moment(snapshot.val().trainTime, "HH:mm");
 
         // 8:00    9:50   30    9:50 - 8:00 110 minutes  / 30 90   110 - 90 
         var minutesAway = snapshot.val().frequency - (moment().diff(trainTimeM, "minutes") % snapshot.val().frequency)
         var nextTrain = moment().add(minutesAway, "minutes").format("hh:mm")
 
-        console.log("---->", minutesAway, nextTrain)
-            // Change the HTML to reflect
-            //$("#name-display").text(snapshot.val().name);
-            //$("#destination-display").text(snapshot.val().email);
-            //$("#traintime-display").text(snapshot.val().age);
-            //$("#comment-display").text(snapshot.val().comment);
-            /////
+        console.log("---->", minutesAway, nextTrain);
+        // Change the HTML to reflect
+        //$("#name-display").text(snapshot.val().name);
+        //$("#destination-display").text(snapshot.val().email);
+        //$("#traintime-display").text(snapshot.val().age);
+        //$("#comment-display").text(snapshot.val().comment);
+        /////
         $("#train-table > tbody").append(`
                                 <tr class="trains">
                                     <td scope="col">${snapshot.val().trainName}</td>

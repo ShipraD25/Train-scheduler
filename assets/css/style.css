@@ -5,3 +5,8 @@
 .jumbotron {
     background-color: burlywood;
 }
+
+.btn-btn-default {
+    background-color: rgb(0, 140, 255);
+    border-radius: 10px;
+}
