@@ -1,4 +1,3 @@
-// START CODING BELOW!!
 $(document).ready(function() {
     // Initialize Firebase
     var firebaseConfig = {
@@ -72,7 +71,6 @@ $(document).ready(function() {
     });
 
     function updateTime() {
-        console.log("update time");
         $(".trains").each(function() {
 
             var frequency = $(this).children(".info").attr("freq");
